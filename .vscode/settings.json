@@ -1,3 +1,6 @@
 {
-    "RTT_Studio.Build.Parallel_Jobs": "16"
+    "RTT_Studio.Build.Parallel_Jobs": "16",
+    "files.associations": {
+        "stdio.h": "c"
+    }
 }
