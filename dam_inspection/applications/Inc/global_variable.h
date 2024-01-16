@@ -15,9 +15,8 @@
 float temperature;//温湿度传感器获得的温度
 float RH;//温湿度传感器获得的湿度
 
-<<<<<<< Updated upstream
+
 uint32_t depth;//ms5837压力传感器所获得的深度
 
-=======
->>>>>>> Stashed changes
+
 #endif /* APPLICATIONS_INC_GLOBAL_VARIABLE_H_ */
