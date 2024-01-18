@@ -11,6 +11,7 @@
 #include "jy901s_drv.h"
 #include <rtthread.h>
 #include <rtdevice.h>
+#include "global_variable.h"
 
 static struct rt_i2c_bus_device *i2c_bus1 = RT_NULL; /* I2C总线设备句柄*/
 extern float accx,accy,accz,angx,angy,angz,magx,magy,magz,roll,pitch,yaw,temperature;
