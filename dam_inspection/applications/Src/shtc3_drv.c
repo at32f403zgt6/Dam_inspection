@@ -158,7 +158,7 @@ void shtc3_mdelay_tim_change(rt_int32_t tim)
  * 使用i2c1总线
  * 成功返回1 否则为0 并打印错误信息
  */
-uint8_t shtc3_init(uint32_t stack_size,
+uint8_t shtc3_init(rt_uint32_t stack_size,
         rt_uint8_t  priority,
         rt_uint32_t tick)
 {

@@ -11,7 +11,7 @@
 #define APPLICATIONS_INC_SHTC3_DRV_H_
 
 #include <rtthread.h>
-uint8_t shtc3_init(uint32_t stack_size,
+uint8_t shtc3_init(rt_uint32_t stack_size,
         rt_uint8_t  priority,
         rt_uint32_t tick);
 void shtc3_mdelay_tim_change(rt_int32_t tim);
