@@ -7,15 +7,6 @@
  * Date           Author       Notes
  * 2024-01-16     b       the first version
  */
-/*
- * Copyright (c) 2006-2021, RT-Thread Development Team
- *
- * SPDX-License-Identifier: Apache-2.0
- *
- * Change Logs:
- * Date           Author       Notes
- * 2024-01-16     b       the first version
- */
 #include "servo.h"
 #include "tim.h"
 #include "global_variable.h"
