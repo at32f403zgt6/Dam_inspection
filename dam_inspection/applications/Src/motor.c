@@ -13,38 +13,27 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 
-/*数据传入记得进行映射,只要映射到motorx变量里
- *
-  *  ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
- *
- * 1000对应正向最大转速
- * 1500对应停转
- * 2000对应反向最大转速
+/*  默认pid_out传入范围为-1000-1000,记得给pid限幅
  */
 
-uint32_t motor1=1500;
-uint32_t motor2=1500;
-uint32_t motor3=1500;
-uint32_t motor4=1500;
-uint32_t motor5=1500;
-uint32_t motor6=1500;
-uint32_t motor7=1500;
-uint32_t motor8=1500;
-
-void thread_motor_entry(void *parameter)
+void motor_set(int16_t num,float duty)
 {
-    rt_thread_mdelay(3000);
-    while(1)
-    {
-        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, motor1);
-        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, motor2);
-        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, motor3);
-        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_4, motor4);
-        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, motor5);
-        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, motor6);
-        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_3, motor7);
-        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_4, motor8);
-    }
+    if(num==1)
+        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_1, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==2)
+        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_2, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==3)
+        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_3, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==4)
+        __HAL_TIM_SetCompare(&htim3, TIM_CHANNEL_4, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==5)
+        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_1, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==6)
+        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==7)
+        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_3, (int32_t)(duty/2.0f+1500.0f));
+    else if(num==8)
+        __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_4, (int32_t)(duty/2.0f+1500.0f));
 }
 
 void motor_init(rt_uint32_t stack_size,
@@ -69,12 +58,5 @@ void motor_init(rt_uint32_t stack_size,
     __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_2, 1500);
     __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_3, 1500);
     __HAL_TIM_SetCompare(&htim4, TIM_CHANNEL_4, 1500);
-    //创建一个动态线程
-    static rt_thread_t thread_motor=NULL;
-    thread_motor=rt_thread_create("th_motor", thread_motor_entry, NULL, stack_size, priority, tick);
-    if(thread_motor!=RT_NULL)
-    {
-        rt_kprintf("thread_motor create succeed...\n");
-        rt_thread_startup(thread_motor);
-    }
+    rt_thread_mdelay(3000);
 }
