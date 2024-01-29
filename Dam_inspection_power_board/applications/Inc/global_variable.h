@@ -14,6 +14,6 @@
 
 #include <rtthread.h>
 
-rt_uint16_t current_adc_data[9];//adc采集电流数据
+rt_uint16_t current_adc_data[10];//adc采集电流数据
 
 #endif /* APPLICATIONS_INC_GLOBAL_VARIABLE_H_ */

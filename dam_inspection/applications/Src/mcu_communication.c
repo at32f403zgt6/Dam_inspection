@@ -22,7 +22,7 @@ rt_uint8_t Uart6_RxFlag = 0;
 
 rt_uint8_t get_data[2];
 rt_uint8_t com_flag;
-rt_uint16_t current_adc_data[9];//adc采集电流数据
+rt_uint16_t current_adc_data[10];//adc采集电流数据
 
 int fgetc(FILE * f)
 {

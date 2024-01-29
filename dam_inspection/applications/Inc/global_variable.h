@@ -22,6 +22,6 @@ float accx,accy,accz,angx,angy,angz,magx,magy,magz,roll,pitch,yaw,temperature;
 
 uint32_t depth;//ms5837压力传感器所获得的深度
 
-rt_uint16_t  current_adc_data[9];   //adc采集的推进器电流数据，由电源板采集后传入主控
+rt_uint16_t  current_adc_data[10];   //adc采集的推进器电流数据，由电源板采集后传入主控
 
 #endif /* APPLICATIONS_INC_GLOBAL_VARIABLE_H_ */
