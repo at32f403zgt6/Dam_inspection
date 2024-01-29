@@ -20,8 +20,7 @@ int main(void)
 
     while (count++)
     {
-        LOG_D("Hello RT-Thread!");
-        rt_thread_mdelay(1000);
+
     }
 
     return RT_EOK;

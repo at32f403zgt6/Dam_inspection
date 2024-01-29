@@ -33,7 +33,7 @@ void thread_servo_entry(void *parameter)
           yaw+=fl_1;
           yaw = yaw > 1000 ? 1000 : yaw;
           yaw = yaw < 0 ? 0 : yaw;
-          __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, yaw);
+          __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, yaw);
           rt_thread_mdelay(10);
        }
        if(!fl_2)
@@ -41,7 +41,7 @@ void thread_servo_entry(void *parameter)
           roll+=fl_2;
           roll = roll > 1000 ? 1000 : roll;
           roll = roll < 0 ? 0 : roll;
-          __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_2, roll);
+          __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, roll);
           rt_thread_mdelay(10);
        }
        if(!fl_3)
@@ -49,7 +49,7 @@ void thread_servo_entry(void *parameter)
           pitch+=fl_3;
           pitch = pitch > 1000 ? 1000 : pitch;
           pitch = pitch < 0 ? 0 : pitch;
-          __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, pitch);
+          __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_3, pitch);
           rt_thread_mdelay(10);
        }
     }
@@ -59,13 +59,13 @@ void servo_init(rt_uint32_t stack_size,
         rt_uint8_t  priority,
         rt_uint32_t tick)
 {
-    MX_TIM2_Init();
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_2);
-    HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_3);
-    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_1, 500);
-    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_2, 500);
-    __HAL_TIM_SetCompare(&htim2, TIM_CHANNEL_3, 500);
+    MX_TIM1_Init();
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_3);
+    __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_1, 500);
+    __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_2, 500);
+    __HAL_TIM_SetCompare(&htim1, TIM_CHANNEL_3, 500);
     //创建一个动态线程
     static rt_thread_t thread_servo=NULL;
     thread_servo=rt_thread_create("th_servo", thread_servo_entry, NULL, stack_size, priority, tick);

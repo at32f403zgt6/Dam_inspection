@@ -15,6 +15,7 @@
 static struct rt_i2c_bus_device *i2c_bus1 = RT_NULL; /* I2C总线设备句柄*/
 
 rt_int32_t mdelay_tim=500;
+rt_int8_t shtc3_flag=0;
 extern float temperature;//温湿度传感器获得的温度
 extern float RH;//温湿度传感器获得的湿度
 /* 写传感器寄存器数据*/
@@ -177,6 +178,7 @@ uint8_t shtc3_init(rt_uint32_t stack_size,
         if(thread_shtc3!=RT_NULL)
         {
             rt_kprintf("thread_shtc3 create succeed...\n");
+            shtc3_flag=1;
             rt_thread_startup(thread_shtc3);
         }
         return 1;

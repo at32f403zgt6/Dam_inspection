@@ -12,6 +12,8 @@
 #ifndef APPLICATIONS_INC_GLOBAL_VARIABLE_H_
 #define APPLICATIONS_INC_GLOBAL_VARIABLE_H_
 
+#include <rtthread.h>
+
 float temperature;//温湿度传感器获得的温度
 float RH;//温湿度传感器获得的湿度
 
