@@ -15,11 +15,7 @@
 #include <rtdevice.h>
 #include "global_variable.h"
 
-rt_uint8_t aRxBuffer;          //接收中断缓冲
 rt_uint8_t Uart6_RxBuff[256] = {0};        //接收缓冲
-rt_uint8_t Uart6_Rx_Cnt = 0;       //接收缓冲计数
-rt_uint8_t Uart6_RxFlag = 0;
-
 rt_uint8_t get_data[2];
 rt_uint8_t com_flag;
 rt_uint16_t current_adc_data[10];//adc采集电流数据
@@ -44,7 +40,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
                 current_adc_data[com_flag-1]=(get_data[0] << 8) | get_data[1];
             }
             com_flag++;
-            if(com_flag==18) com_flag=0;
+            if(com_flag==20) com_flag=0;
         }
         else
         {

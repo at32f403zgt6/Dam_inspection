@@ -25,7 +25,7 @@ void thread_com_entry(void *parameter)
     while(1)
     {
        rt_kprintf("s");
-       for(int i=0;i<9;i++)
+       for(int i=0;i<10;i++)
        {
        data_conver(&h_data,&l_data,current_adc_data[i]);
        rt_kprintf("%c",h_data);
