@@ -38,10 +38,10 @@ uint64_t SENS;               //SENS 实际温度灵敏度
 uint32_t D1_Pres,D2_Temp;   // 数字压力值,数字温度值
 uint32_t TEMP2,T2,OFF2,SENS2;   //温度校验值
 
-uint32_t Pressure;              //气压
+
 uint32_t Atmdsphere_Pressure;//大气压
 extern uint32_t Depth;  //深度
-
+extern uint32_t Pressure;  //气压
 
 /* 写传感器寄存器 */
 static rt_err_t write_reg(struct rt_i2c_bus_device *bus, rt_uint8_t reg, rt_uint8_t *data)
