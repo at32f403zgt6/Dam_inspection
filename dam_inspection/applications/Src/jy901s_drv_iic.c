@@ -1,4 +1,5 @@
 /*
+#include <jy901s_drv_iic.h>
  * Copyright (c) 2006-2021, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
@@ -8,10 +9,10 @@
  * 2024-01-18     孙                 the first version
  */
 
-#include "jy901s_drv.h"
 #include <rtthread.h>
 #include <rtdevice.h>
 #include "global_variable.h"
+#include "jy901s_drv_iic.h"
 
 static struct rt_i2c_bus_device *i2c_bus1 = RT_NULL; /* I2C总线设备句柄*/
 extern float accx,accy,accz,angx,angy,angz,magx,magy,magz,roll,pitch,yaw,temperature;

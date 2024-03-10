@@ -7,7 +7,7 @@
  * Date           Author       Notes
  * 2024-01-18     孙                 the first version
  */
-#ifndef APPLICATIONS_INC_JY901S_DRV_H_
+#ifndef APPLICATIONS_INC_JY901S_DRV_IIC_H_
 #define APPLICATIONS_INC_JY901S_DRV_H_
 
 unsigned char jy901s_init(unsigned int stack_size,
@@ -88,4 +88,4 @@ void jy901s_detim_change(signed   int tim);
 #define GPSVH           0x50
 /*reg end*/
 
-#endif /* APPLICATIONS_INC_JY901S_DRV_H_ */
+#endif /* APPLICATIONS_INC_JY901S_DRV_IIC_H_ */
