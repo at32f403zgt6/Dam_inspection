@@ -16,7 +16,7 @@
 
 static struct rt_i2c_bus_device *i2c_bus1 = RT_NULL; /* I2C总线设备句柄*/
 
-extern uint32_t depth;
+
 
 //定义数据手册中需要的参数
 /*
@@ -38,7 +38,7 @@ uint64_t SENS;               //SENS 实际温度灵敏度
 uint32_t D1_Pres,D2_Temp;   // 数字压力值,数字温度值
 uint32_t TEMP2,T2,OFF2,SENS2;   //温度校验值
 
-uint32_t Pressure;              //气压
+extern uint32_t Pressure;              //气压
 uint32_t Atmdsphere_Pressure;//大气压
 extern uint32_t Depth;  //深度
 
@@ -236,7 +236,7 @@ void thread_ms5837_entry(void *parameter)
     while(1)
     {
     MS5837_Getdata();
-    rt_kprintf("Depth : %u \n",depth);
+    rt_kprintf("Depth : %u \n",Depth);
     rt_thread_mdelay(mdelay_tim_ms5837);
     }
 }
